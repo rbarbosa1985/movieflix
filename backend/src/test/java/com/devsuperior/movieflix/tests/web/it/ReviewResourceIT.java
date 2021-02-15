@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
-import com.devsuperior.movieflix.dto.ReviewDTO;
+import com.devsuperior.movieflix.entities.dto.ReviewDTO;
 import com.devsuperior.movieflix.repositories.ReviewRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
