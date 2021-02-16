@@ -2,15 +2,20 @@ package com.devsuperior.movieflix.entities.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 import com.devsuperior.movieflix.entities.Review;
 
 public class ReviewDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
+	@Size(min = 3, max = 255, message = "Digite um nome válido!")
+	@NotBlank(message = "O campo text não aceita um texto em branco!")
 	private String text;
 	private Long movieId;
-	private Long userId;
+	//private Long userId;
 	
 	public ReviewDTO() {
 		
@@ -20,14 +25,14 @@ public class ReviewDTO implements Serializable {
 		this.id = id;
 		this.text = text;
 		this.movieId = movieId;
-		this.userId = userId;
+	//	this.userId = userId;
 	}
 
 	public ReviewDTO(Review entity) {
 		this.id = entity.getId();
 		this.text = entity.getText();
 		this.movieId = entity.getMovie().getId();
-		this.userId = entity.getUser().getId();
+	//	this.userId = entity.getUser().getId();
 	}
 
 	public Long getId() {
@@ -53,14 +58,14 @@ public class ReviewDTO implements Serializable {
 	public void setMovieId(Long movieId) {
 		this.movieId = movieId;
 	}
-
+/*
 	public Long getUserId() {
 		return userId;
 	}
 
 	public void setUserId(Long userId) {
 		this.userId = userId;
-	}
+	}*/
 
 	@Override
 	public int hashCode() {
