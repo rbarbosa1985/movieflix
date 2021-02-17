@@ -32,7 +32,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 	
 	private static final String[] VISITOR = { "/movies/**", "/genres/**" };
 
-	private static final String[] MEMBER = { "/reviews/**" };
+	private static final String[] MEMBER = { "/reviews/**", "/users/**" };
 	
 	@Override
 	public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
