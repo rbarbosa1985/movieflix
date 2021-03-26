@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
 import Movies from './Movies';
-import MoviesDetails from './Movies/MoviesDetails'
+import MoviesDetails from './Movies/Catalog/MoviesDetails'
 import './styles.scss';
 import PrivateRoute from "../../core/components/Routes/PrivateRoute";
 

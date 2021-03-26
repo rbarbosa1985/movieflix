@@ -13,7 +13,7 @@ const Navbar = () => {
      return (
           <nav className="row bg-primary main-nav">
                <div className="col-3">
-                    <Link to="/" className="nav-logo-text">
+                    <Link to="/admin" className="nav-logo-text">
                          <h4>MovieFlix</h4>
                     </Link>
                </div>

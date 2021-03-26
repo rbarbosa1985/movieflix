@@ -1,3 +1,3 @@
 export type ParamsType = {
-     productId: string;
+     movieId: string;
 }
