@@ -5,10 +5,11 @@ import { isAuthenticated, logout } from "../../utils/auth";
 
 const Navbar = () => {
 
-     const handleLogout = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-          event.preventDefault();
+     const handleLogout = () => {
+          window.location.reload();
           logout();
      }
+
 
      return (
           <nav className="row bg-primary main-nav">
@@ -18,7 +19,7 @@ const Navbar = () => {
                     </Link>
                </div>
                <div className="col-9 text-right">
-                    {isAuthenticated() && (<a href="#logout" className="nav-link active d-inline" onClick={handleLogout}>LOGOUT</a>)}
+                    {isAuthenticated() && (<button type="button" className="btn-sair btn btn-outline-dark" onClick={handleLogout}>SAIR</button>)}
                </div>
           </nav>
      )

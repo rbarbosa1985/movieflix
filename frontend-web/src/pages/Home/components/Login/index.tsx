@@ -30,6 +30,7 @@ const Login = () => {
                     setHasError(false);
                     saveSessionData(response.data);
                     history.replace(from);
+                    window.location.reload();
                })
                .catch(() => { setHasError(true); });
      }
