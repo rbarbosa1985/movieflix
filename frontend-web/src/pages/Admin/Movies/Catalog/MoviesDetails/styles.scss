@@ -1,7 +1,7 @@
 .movie-details-container {
      margin-top: 40px;
-     padding-left: 140px;
-     padding-right: 140px;    
+     padding-left: 40px;
+     padding-right: 40px;    
      justify-content: center;
      display: flex;
      flex-wrap: wrap;
@@ -10,9 +10,9 @@
 
 .movie-details-card {
     padding-top: 50px;
-    padding-left: 150px;
+    padding-left: 140px;
     padding-bottom: 20px;
-    padding-right: 150px;
+    padding-right: 100px;
     max-width: 1600px;
     margin-bottom: 20px;
 }
