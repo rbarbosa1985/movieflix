@@ -1,24 +1,30 @@
-.product-details-container {
+.movie-details-container {
      margin-top: 40px;
-     padding-left: 40px;
-     padding-right: 40px;
-     margin-bottom: 40px;
-     .product-price-container{
-          margin-top: 30px;
-     }
+     padding-left: 140px;
+     padding-right: 140px;    
+     justify-content: center;
+     display: flex;
+     flex-wrap: wrap;
+     flex-direction: column;
 }
 
-.product-details {
-     padding: 50px 60px 90px 60px;
+.movie-details-card {
+    padding-top: 50px;
+    padding-left: 150px;
+    padding-bottom: 20px;
+    padding-right: 150px;
+    max-width: 1600px;
+    margin-bottom: 20px;
 }
+
 
 .arrow-goback {
-     color: #407BFF;
+     color: #FFC700,;
      transform: rotate(-180deg);   
      margin-right: 30px;
 }
 
-.product-details-goback{
+.movie-details-goback{
      display: flex;
      align-items: center;
      margin-bottom: 20px;
@@ -32,40 +38,63 @@
      mix-blend-mode: normal;
 }
 
-.product-details-card {
+.movie-details-card2 {
+     margin-left: 60px;
+}
+
+.movie-details-img{
+     max-width: 250px;
+     max-width: 250px;
+}
+
+.movie-description-text{
+     width: 540px;
+     height: 240px;
+     font-size: 16px;
+     line-height: 21,79px;
+     letter-spacing: -0.015em;
+     color: #9E9E9E;
      border: 1px solid #E1E1E1;
+     box-sizing: border-box;
      border-radius: 20px;
-     padding: 38px 29px;
+     padding: 15px 30px 0px 20px;
+     text-align: justify;
 }
 
-.product-details-img{
-     width: 353px;
-     height: 353px;
-}
-
-.product-description-title{
-     font-size: 24px;
-     line-height: 33px;
-     letter-spacing: -0.015em;
-     color: #9E9E9E;
-     margin-bottom: 25px;
-}
-
-.product-description-text{
-     font-size: 18px;
-     line-height: 25px;
-     letter-spacing: -0.015em;
-     color: #9E9E9E;
-}
-
-.product-details-name{
+.movie-details-title{
      font-size: 36px;
      line-height: 49px;
      letter-spacing: -0.015em;
      color: #263238;
-     margin-top: 35px;
 }
 
-.product-details .product-price {
-     font-size: 48px;
+.movie-details-subtitle{
+     font-style: normal;
+     font-weight: normal;
+     font-size: 18px;
+     line-height: 25px;
+     letter-spacing: -0.015em;
+     color: #FFFFFF;
+     mix-blend-mode: normal;
+     margin-bottom: 5px;
+}
+
+.movie-details-year{
+     font-style: normal;
+     font-weight: bold;
+     font-size: 24px;
+     line-height: 33px;
+     letter-spacing: -0.015em;
+     color: #FFC700;
+     mix-blend-mode: normal;
+     margin-top: 5px;
+     margin-bottom: 5px;
+}
+
+.review-card{
+     margin-bottom: 20px;
+}
+
+.review-user-card{
+
 }
