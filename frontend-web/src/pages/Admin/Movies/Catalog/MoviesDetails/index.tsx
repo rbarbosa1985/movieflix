@@ -17,7 +17,6 @@ type FormState = {
 
 const MoviesDetails = () => {
      const { register, handleSubmit, errors } = useForm<FormState>();
-     const [hasError, setHasError] = useState(false);
      const { movieId } = useParams<ParamsType>();
      const [movie, setMovie] = useState<Movie>();
      const currentUserData = getAccessTokenDecode();
