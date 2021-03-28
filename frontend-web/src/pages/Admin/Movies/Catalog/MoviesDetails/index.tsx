@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import './styles.scss';
+import { useForm } from 'react-hook-form';
 import { ParamsType } from './types';
 import { makePrivateRequest } from 'core/utils/request';
 import { ReactComponent as ArrowIcon } from 'core/assets/images/arrow.svg';
@@ -10,16 +11,20 @@ import { ReactComponent as Star } from 'core/assets/images/star.svg';
 import { Movie } from 'core/types/Movies';
 import { getAccessTokenDecode } from 'core/utils/auth';
 
+type FormState = {
+     review: string;
+}
 
 const MoviesDetails = () => {
+     const { register, handleSubmit, errors } = useForm<FormState>();
+     const [hasError, setHasError] = useState(false);
      const { movieId } = useParams<ParamsType>();
      const [movie, setMovie] = useState<Movie>();
      const currentUserData = getAccessTokenDecode();
      const [review, setReview] = useState('');
      const data = {
           text: '',
-          movieId: 0,
-          // userId: 0
+          movieId: 0
      }
 
      const handleChangeReview = (review: string) => {
@@ -31,7 +36,6 @@ const MoviesDetails = () => {
 
           data.text = review;
           data.movieId = parseInt(movieId);
-          //  data.userId = currentUserData.exp;
 
           makePrivateRequest({
                method: 'POST',
@@ -39,19 +43,17 @@ const MoviesDetails = () => {
                data
           })
                .then(() => {
-                    toast.info('Produto cadastrado com sucesso!');
-                    window.location.reload();
+                    toast.info('Avaliação cadastrada com sucesso!!');
+                    setTimeout(() => { window.location.reload() }, 2000);
                })
                .catch(() => {
-                    toast.error('Erro ao salvar produto!');
+                    toast.error('Erro ao salvar avaliação!');
                });
      }
 
      useEffect(() => {
           makePrivateRequest({ url: `/movies/${movieId}` })
                .then(response => setMovie(response.data))
-
-          // console.log(movie);
      }, [movieId]);
 
      return (
@@ -74,8 +76,20 @@ const MoviesDetails = () => {
                     </div>
                </div>
                {!(currentUserData.authorities.indexOf('ROLE_MEMBER') !== 0) && (<div className="review-card card-base border-radius-20">
-                    <input type="text" className="input-salvar form-control" placeholder="Deixe sua avaliação aqui" value={review} onChange={event => handleChangeReview(event.target.value)} />
-                    <button type="button" className="btn-salvar btn btn-warning" onClick={onSubmit}>SALVAR AVALIAÇÃO</button>
+                    <form className="review-form" onSubmit={handleSubmit(onSubmit)}>
+                         <input type="text"
+                              className="input-salvar form-control"
+                              placeholder="Deixe sua avaliação aqui"
+                              name="review"
+                              value={review}
+                              ref={register({
+                                   required: "Campo Obrigatório.",
+                              })}
+                              onChange={event => handleChangeReview(event.target.value)} />
+                         {errors.review && (<div className="invalid-feedback d-block">
+                              {errors.review.message}</div>)}
+                         <button className="btn-salvar btn btn-warning" >SALVAR AVALIAÇÃO</button>
+                    </form>
                </div>)}
                {!(movie?.reviews.length === 0) && (<div className="review-user-card card-base border-radius-20">
                     {movie?.reviews.map(review => (

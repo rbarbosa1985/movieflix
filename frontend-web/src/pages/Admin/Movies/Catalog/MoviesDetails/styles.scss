@@ -95,6 +95,14 @@
      margin-bottom: 5px;
 }
 
+.review-form{
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+}
+
 .review-card{
      padding: 20px;
      margin-bottom: 20px;
