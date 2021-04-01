@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import './styles.scss';
@@ -42,18 +42,23 @@ const MoviesDetails = () => {
                data
           })
                .then(() => {
+                    getMovie();
                     toast.info('Avaliação cadastrada com sucesso!!');
-                    setTimeout(() => { window.location.reload() }, 2000);
+                    setReview('');
                })
                .catch(() => {
                     toast.error('Erro ao salvar avaliação!');
                });
      }
 
-     useEffect(() => {
+     const getMovie = useCallback(() => {
           makePrivateRequest({ url: `/movies/${movieId}` })
                .then(response => setMovie(response.data))
      }, [movieId]);
+
+     useEffect(() => {
+          getMovie();
+     }, [getMovie]);
 
      return (
           <div className="movie-details-container">
